@@ -1,0 +1,25 @@
+{
+  "name": "victorfern91.pt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "npm run init:server && npm run copy:homepage",
+    "copy:homepage": "sshpass scp -r dist/homepage/** root@victorfern91.pt:~/homepage",
+    "init:server": "sshpass scp package.json root@victorfern91.pt:~/ && sshpass ssh root@victorfern91.pt 'npm install' && sshpass scp server.js root@victorfern91.pt:~/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorfern91/victorfern91.pt.git"
+  },
+  "author": "victorfern91@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victorfern91/victorfern91.pt/issues"
+  },
+  "homepage": "https://github.com/victorfern91/victorfern91.pt#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "helmet": "^3.15.0"
+  }
+}
